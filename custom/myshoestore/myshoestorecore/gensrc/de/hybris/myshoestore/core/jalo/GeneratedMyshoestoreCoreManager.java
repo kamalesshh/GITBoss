@@ -1,20 +1,26 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 30, 2023, 12:32:47 PM                   ---
+ * --- Generated at Jun 12, 2023, 12:36:34 PM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
  */
 package de.hybris.myshoestore.core.jalo;
 
+import com.stackextend.training.jalo.components.YoutubeVideoComponent;
 import de.hybris.myshoestore.core.constants.MyshoestoreCoreConstants;
 import de.hybris.myshoestore.core.jalo.ApparelProduct;
 import de.hybris.myshoestore.core.jalo.ApparelSizeVariantProduct;
 import de.hybris.myshoestore.core.jalo.ApparelStyleVariantProduct;
 import de.hybris.myshoestore.core.jalo.CustomOffersComponent;
 import de.hybris.myshoestore.core.jalo.ElectronicsColorVariantProduct;
+import de.hybris.myshoestore.core.jalo.Ingredients;
+import de.hybris.myshoestore.core.jalo.LenskartBrand;
+import de.hybris.myshoestore.core.jalo.LenskartProduct;
 import de.hybris.myshoestore.core.jalo.NewProduct;
+import de.hybris.myshoestore.core.jalo.Recipe;
+import de.hybris.myshoestore.core.jalo.process.HelloWorldEmailProcess;
 import de.hybris.platform.jalo.GenericItem;
 import de.hybris.platform.jalo.Item;
 import de.hybris.platform.jalo.Item.AttributeMode;
@@ -194,6 +200,110 @@ public abstract class GeneratedMyshoestoreCoreManager extends Extension
 		return createElectronicsColorVariantProduct( getSession().getSessionContext(), attributeValues );
 	}
 	
+	public HelloWorldEmailProcess createHelloWorldEmailProcess(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( MyshoestoreCoreConstants.TC.HELLOWORLDEMAILPROCESS );
+			return (HelloWorldEmailProcess)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating HelloWorldEmailProcess : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public HelloWorldEmailProcess createHelloWorldEmailProcess(final Map attributeValues)
+	{
+		return createHelloWorldEmailProcess( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public Ingredients createIngredients(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( MyshoestoreCoreConstants.TC.INGREDIENTS );
+			return (Ingredients)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating Ingredients : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public Ingredients createIngredients(final Map attributeValues)
+	{
+		return createIngredients( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public LenskartBrand createLenskartBrand(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( MyshoestoreCoreConstants.TC.LENSKARTBRAND );
+			return (LenskartBrand)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating LenskartBrand : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public LenskartBrand createLenskartBrand(final Map attributeValues)
+	{
+		return createLenskartBrand( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public LenskartProduct createLenskartProduct(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( MyshoestoreCoreConstants.TC.LENSKARTPRODUCT );
+			return (LenskartProduct)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating LenskartProduct : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public LenskartProduct createLenskartProduct(final Map attributeValues)
+	{
+		return createLenskartProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
 	public NewProduct createNewProduct(final SessionContext ctx, final Map attributeValues)
 	{
 		try
@@ -218,6 +328,58 @@ public abstract class GeneratedMyshoestoreCoreManager extends Extension
 	public NewProduct createNewProduct(final Map attributeValues)
 	{
 		return createNewProduct( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public Recipe createRecipe(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( MyshoestoreCoreConstants.TC.RECIPE );
+			return (Recipe)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating Recipe : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public Recipe createRecipe(final Map attributeValues)
+	{
+		return createRecipe( getSession().getSessionContext(), attributeValues );
+	}
+	
+	public YoutubeVideoComponent createYoutubeVideoComponent(final SessionContext ctx, final Map attributeValues)
+	{
+		try
+		{
+			ComposedType type = getTenant().getJaloConnection().getTypeManager().getComposedType( MyshoestoreCoreConstants.TC.YOUTUBEVIDEOCOMPONENT );
+			return (YoutubeVideoComponent)type.newInstance( ctx, attributeValues );
+		}
+		catch( JaloGenericCreationException e)
+		{
+			final Throwable cause = e.getCause();
+			throw (cause instanceof RuntimeException ?
+			(RuntimeException)cause
+			:
+			new JaloSystemException( cause, cause.getMessage(), e.getErrorCode() ) );
+		}
+		catch( JaloBusinessException e )
+		{
+			throw new JaloSystemException( e ,"error creating YoutubeVideoComponent : "+e.getMessage(), 0 );
+		}
+	}
+	
+	public YoutubeVideoComponent createYoutubeVideoComponent(final Map attributeValues)
+	{
+		return createYoutubeVideoComponent( getSession().getSessionContext(), attributeValues );
 	}
 	
 	@Override

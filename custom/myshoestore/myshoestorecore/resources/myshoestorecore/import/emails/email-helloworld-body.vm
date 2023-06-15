@@ -1,0 +1,12 @@
+<html>
+    <head>
+    </head>
+
+    <body bgcolor="#ffffff">
+
+        <h1>Hello ${ctx.firstName}</h1>
+
+        <p>This is a Hello World Email from Hybris</p>
+
+    </body>
+</html>

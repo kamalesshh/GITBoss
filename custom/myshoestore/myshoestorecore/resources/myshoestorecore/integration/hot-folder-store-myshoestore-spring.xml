@@ -49,4 +49,22 @@
           class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
           p:mapping="product"
           p:converter-ref="myshoestoreProductConverter" />
+
+    <bean id="recipeDataConverter" class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
+        <property name="header">
+            <value>$productCatalog=myShoeStoreProductCatalog
+                $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+                $approved=approvalstatus(code)[default='check']
+                INSERT_UPDATE Recipe;code[unique=true];title;description;
+            </value>
+        </property>
+        <property name="impexRow">
+            <value>;{+0};{1};{2}</value>
+        </property>
+    </bean>
+    <bean id="recipeDataConverterMapping"
+          class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
+          p:mapping="recipe"
+          p:converter-ref="recipeDataConverter" />
+
 </beans>

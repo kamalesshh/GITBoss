@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Mar 30, 2023, 12:32:47 PM                   ---
+ * --- Generated at Jun 12, 2023, 12:36:34 PM                   ---
  * ----------------------------------------------------------------
  *  
  * Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
@@ -19,6 +19,10 @@ public class GeneratedNewproductcronjobConstants
 	public static class TC
 	{
 		public static final String NEWPRODUCTCRONJOB = "NewProductCronJob".intern();
+	}
+	public static class Attributes
+	{
+		// no constants defined.
 	}
 	
 	protected GeneratedNewproductcronjobConstants()

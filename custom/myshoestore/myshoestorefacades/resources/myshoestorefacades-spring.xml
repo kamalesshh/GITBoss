@@ -199,6 +199,49 @@
 	</bean>
 
 
+	<bean id="recipePopulator" class="de.hybris.myshoestore.facades.populators.RecipePopulator">
+	</bean>
+	<bean id="recipeConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass"
+				  value="de.hybris.myshoestore.facades.RecipeData"/>
+		<property name="populators">
+			<list>
+				<ref bean="recipePopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="recipeFacade" class="de.hybris.myshoestore.facades.Recipe.RecipeFacadeImpl">
+		<property name="recipeService" ref="recipeService"/>
+		<property name="modelService" ref="modelService"/>
+		<property name="recipeReversePopulator" ref="recipeReversePopulator"/>
+		<property name="recipeConverter"
+				  ref="recipeConverter"/>
+
+	</bean>
+
+	<bean id="ingredientsPopulator" class="de.hybris.myshoestore.facades.populators.IngredientsPopulator">
+	</bean>
+	<bean id="ingredientsConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass"
+				  value="de.hybris.myshoestore.facades.IngredientsData"/>
+		<property name="populators">
+			<list>
+				<ref bean="ingredientsPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="ingredientsFacade" class="de.hybris.myshoestore.facades.Ingredients.IngredientsFacadeImpl">
+		<property name="ingredientsService" ref="ingredientsService"/>
+		<property name="modelService" ref="modelService"/>
+		<property name="ingredientsPopulator" ref="ingredientsPopulator"/>
+		<property name="ingredientsConverter"
+				  ref="ingredientsConverter"/>
+
+	</bean>
+
+
 	<bean id="newProductDataPopulator" class="de.hybris.myshoestore.facades.populators.NewProductDataPopulator">
 	</bean>
 	<bean id="newProductDataReversePopulator" class="de.hybris.myshoestore.facades.populators.NewProductDataReversePopulator" />
@@ -235,6 +278,84 @@
 	<bean id="dynamicPriceHandler" class="de.hybris.myshoestore.facades.attributehandler.DynamicPriceHandler">
 	</bean>
 
+
+	<bean id="dynamicComplexHandler" class="de.hybris.myshoestore.facades.attributehandler.DynamicComplexHandler">
+	</bean>
+
+	<bean id="dynamicCodeHandler" class="de.hybris.myshoestore.facades.attributehandler.DynamicCodeHandler">
+	</bean>
+
+	<bean id="lenskartProductDataPopulator" class="de.hybris.myshoestore.facades.populators.LenskartProductDataPopulator">
+	</bean>
+
+
+
+	<bean id="lenskartProductDataConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass"
+				  value="de.hybris.myshoestore.facades.LenskartProductData"/>
+		<property name="populators">
+			<list>
+				<ref bean="lenskartProductDataPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="lenskartBrandPopulator" class="de.hybris.myshoestore.facades.populators.LenskartBrandPopulator">
+	</bean>
+
+	<bean id="lenskartBrandConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass"
+				  value="de.hybris.myshoestore.facades.LenskartProductData"/>
+		<property name="populators">
+			<list>
+				<ref bean="lenskartBrandPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="lenskartProductDataReversePopulator" class="de.hybris.myshoestore.facades.populators.LenskartProductDataReversePopulator">
+	</bean>
+
+	<bean id="lenskartProductDataReverseConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass"
+				  value="de.hybris.myshoestore.facades.LenskartProductData"/>
+		<property name="populators">
+			<list>
+				<ref bean="lenskartProductDataReversePopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="lenskartProductFacade" class="de.hybris.myshoestore.facades.LenskartProduct.impl.LenskartProductFacadeImpl">
+		<property name="lenskartProductService" ref="lenskartProductService"/>
+		<property name="modelService" ref="modelService"/>
+		<property name="lenskartProductDataReversePopulator" ref="lenskartProductDataReversePopulator"/>
+		<property name="lenskartProductDataConverter"
+				  ref="lenskartProductDataConverter"/>
+		<property name="lenskartBrandConverter"
+				  ref="lenskartBrandConverter"/>
+
+	</bean>
+
+	<bean id="helloWorldEmailContext"
+		  class="de.hybris.myshoestore.facades.process.email.context.HelloWorldEmailContext"
+		  parent="customerEmailContext"
+		  scope="prototype" >
+
+	</bean>
+
+	<bean id="recipeReversePopulator" class="de.hybris.myshoestore.facades.populators.RecipeReversePopulator" />
+
+
+	<bean id="recipeReverseConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.myshoestore.core.model.RecipeModel"/>
+		<property name="populators">
+			<list merge="true">
+				<ref bean="recipeReversePopulator"/>
+			</list>
+		</property>
+	</bean>
 
 
 </beans>

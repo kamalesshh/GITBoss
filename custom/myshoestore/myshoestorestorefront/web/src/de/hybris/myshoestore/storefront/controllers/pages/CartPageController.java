@@ -38,7 +38,9 @@ import de.hybris.platform.commerceservices.order.CommerceCartModificationExcepti
 import de.hybris.platform.commerceservices.order.CommerceSaveCartException;
 import de.hybris.platform.commerceservices.security.BruteForceAttackHandler;
 import de.hybris.platform.core.enums.QuoteState;
+import de.hybris.platform.core.model.order.CartModel;
 import de.hybris.platform.enumeration.EnumerationService;
+import de.hybris.platform.servicelayer.event.events.AbstractEvent;
 import de.hybris.platform.site.BaseSiteService;
 import de.hybris.platform.util.Config;
 import de.hybris.myshoestore.storefront.controllers.ControllerConstants;
@@ -133,9 +135,9 @@ public class CartPageController extends AbstractCartPageController
 	@RequestMapping(method = RequestMethod.GET)
 	public String showCart(final Model model) throws CMSItemNotFoundException
 	{
+
 		return prepareCartUrl(model);
 	}
-
 	protected String prepareCartUrl(final Model model) throws CMSItemNotFoundException
 	{
 		final Optional<String> quoteEditUrl = getQuoteUrl();

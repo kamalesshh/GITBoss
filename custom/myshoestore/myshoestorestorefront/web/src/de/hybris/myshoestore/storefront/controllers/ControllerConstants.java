@@ -160,7 +160,16 @@ public interface ControllerConstants
 
                 String CreateNewProduct = "pages/product/createNewProduct";
 				String UpdateNewProductColor = "pages/product/updateNewProductColor";
-			}
+                String LenskartProductDetails = "pages/product/lenskartProductDetails";
+				String CreateLenskartProduct = "pages/product/createLenskartProduct";
+				String UpdateLenskartProductSize = "pages/product/updateLenskartProductSize";
+                String LenskartProductBrandDetails = "pages/product/lenskartProductBrandDetails" ;
+                String RecipeDetails = "pages/product/recipeDetails";
+                String IngredientsDetails = "pages/product/ingredientsDetails";
+				String CreateRecipe = "pages/product/createRecipe" ;
+				String updateRecipe = "pages/product/updateRecipe";
+                String EditRecipe = "pages/product/editRecipe";
+            }
 
 			interface QuickOrder // NOSONAR
 			{

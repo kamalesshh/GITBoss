@@ -2,27 +2,98 @@
 <!--
  Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 --><extensioninfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extensioninfo.xsd">
-        	
+                                    	
+    
+    
+    
+    
+    
+    
+    
     
     <extension abstractclassprefix="Generated" classprefix="MyshoestoreStorefront" name="myshoestorestorefront" usemaven="false">
-                		
+                                                                        		
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <requires-extension name="gigyaconsent"/>
+        <requires-extension name="gigyalogin"/>
+                
+        <requires-extension name="gigyacommon"/>
+                        
+        
+                        
+        
+                        
+        
+                        
+        
+        
+        
+        
+        <requires-extension name="captchaaddon"/>
+                                                        
+        
+        
+        
         
         
         <requires-extension name="acceleratorstorefrontcommons"/>
-                		
+                                                                        		
+        
+        
+        
+        
+        
+        
+        
         
         <requires-extension name="myshoestorefacades"/>
-                		
+                                                                        		
+        
+        
+        
+        
+        
+        
+        
         
         <webmodule jspcompile="false" webroot="/myshoestorestorefront"/>
-                		
+                                                                        		
         
         		
         
+        
+        
+        
+        
+        
+        
+        
         <meta key="extgen-template-extension" value="true"/>
-                	
+                                                                        	
+    
+    
+    
+    
+    
+    
+    
     
     </extension>
-        
+                                    
+
+
+
+
+
+
+
 
 </extensioninfo>

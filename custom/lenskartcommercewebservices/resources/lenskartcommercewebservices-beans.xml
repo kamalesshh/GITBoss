@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
+
+	<enum class="de.hybris.lenskartcommercewebservices.populator.options.PaymentInfoOption">
+		<value>BASIC</value>
+		<value>BILLING_ADDRESS</value>
+	</enum>
+
+	<!--auth response  -->
+	<bean class="de.hybris.lenskartcommercewebservices.auth.data.LogoutResponse">
+		<property name="success" type="boolean"/>
+	</bean>
+
+	<!-- storesession data -->
+
+	<bean class="de.hybris.lenskartcommercewebservices.storesession.data.LanguageDataList">
+		<property name="languages"
+		          type="java.util.Collection&lt;de.hybris.platform.commercefacades.storesession.data.LanguageData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.storesession.data.CurrencyDataList">
+		<property name="currencies"
+		          type="java.util.Collection&lt;de.hybris.platform.commercefacades.storesession.data.CurrencyData>"/>
+	</bean>
+
+	<!-- order data -->
+
+	<bean class="de.hybris.lenskartcommercewebservices.order.data.CartDataList">
+		<property name="carts"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.CartData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.order.data.OrderEntryDataList">
+		<property name="orderEntries"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.OrderEntryData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.order.data.CardTypeDataList">
+		<property name="cardTypes"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.order.data.CardTypeData>"/>
+	</bean>
+
+	<!-- product data -->
+
+	<bean class="de.hybris.lenskartcommercewebservices.product.data.ProductDataList">
+		<property name="products"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.ProductData>"/>
+		<property name="catalog" type="String"/>
+		<property name="version" type="String"/>
+		<property name="totalProductCount" type="int"/>
+		<property name="totalPageCount" type="int"/>
+		<property name="currentPage" type="int"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.product.data.PromotionDataList">
+		<property name="promotions"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.PromotionData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.product.data.PromotionResultDataList">
+		<property name="promotions"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.PromotionResultData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.product.data.ReviewDataList">
+		<property name="reviews" type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.ReviewData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.product.data.SuggestionDataList">
+		<property name="suggestions"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.product.data.SuggestionData>"/>
+	</bean>
+
+	<!-- user data -->
+
+	<bean class="de.hybris.lenskartcommercewebservices.user.data.TitleDataList">
+		<property name="titles" type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.TitleData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.user.data.CountryDataList">
+		<property name="countries" type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.CountryData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.user.data.RegionDataList">
+		<property name="regions"
+				  type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.RegionData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.user.data.AddressDataList">
+		<property name="addresses" type="java.util.List&lt;de.hybris.platform.commercefacades.user.data.AddressData>"/>
+	</bean>
+
+	<!-- voucher data -->
+	<bean class="de.hybris.lenskartcommercewebservices.voucher.data.VoucherDataList">
+		<property name="vouchers"
+		          type="java.util.List&lt;de.hybris.platform.commercefacades.voucher.data.VoucherData>"/>
+	</bean>
+
+	<!-- validation data -->
+	<bean class="de.hybris.lenskartcommercewebservices.validation.data.AddressValidationData">
+		<property name="errors" type="de.hybris.platform.webservicescommons.dto.error.ErrorListWsDTO"/>
+		<property name="decision" type="String"/>
+		<property name="suggestedAddressesList"
+		          type="de.hybris.lenskartcommercewebservices.user.data.AddressDataList"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.validation.data.CartVoucherValidationData">
+		<property name="subject" type="String" />
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.validation.data.CartVoucherValidationDataList">
+		<property name="CartVoucherValidationDataList"
+				  type="java.util.List&lt;de.hybris.lenskartcommercewebservices.validation.data.CartVoucherValidationData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.user.data.LoginChangeResponse">
+		<property name="success" type="boolean"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.user.data.PasswordRestoreResponse">
+		<property name="success" type="boolean"/>
+	</bean>
+
+	<!-- update queues -->
+
+	<bean class="de.hybris.lenskartcommercewebservices.queues.data.ProductExpressUpdateElementData">
+		<property name="code" type="String"/>
+		<property name="catalogId" type="String"/>
+		<property name="catalogVersion" type="String"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.queues.data.ProductExpressUpdateElementDataList">
+		<property name="productExpressUpdateElements"
+		          type="java.util.List&lt;de.hybris.lenskartcommercewebservices.queues.data.ProductExpressUpdateElementData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.queues.data.OrderStatusUpdateElementData">
+		<property name="code" type="String"/>
+		<property name="status" type="String"/>
+		<property name="baseSiteId" type="String"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.queues.data.OrderStatusUpdateElementDataList">
+		<property name="orderStatusUpdateElements"
+		          type="java.util.List&lt;de.hybris.lenskartcommercewebservices.queues.data.OrderStatusUpdateElementData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.store.data.StoreCountListData">
+		<property name="countriesAndRegionsStoreCount"
+				  type="java.util.List&lt;de.hybris.platform.commercefacades.store.data.StoreCountData>"/>
+	</bean>
+
+	<!-- Consent management -->
+	<bean class="de.hybris.lenskartcommercewebservices.consent.data.ConsentTemplateDataList">
+		<property name="consentTemplates"
+				  type="java.util.List&lt;de.hybris.platform.commercefacades.consent.data.ConsentTemplateData>"/>
+	</bean>
+
+	<!-- Base Sites -->
+	<bean class="de.hybris.lenskartcommercewebservices.basesite.data.BaseSiteDataList">
+		<property name="baseSites"
+				  type="java.util.List&lt;de.hybris.platform.commercefacades.basesite.data.BaseSiteData>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.returns.data.ReturnRequestsData">
+		<property name="returnRequests"
+				  type="java.util.List&lt;de.hybris.platform.ordermanagementfacades.returns.data.ReturnRequestData>"/>
+		<property name="sorts" type="java.util.List&lt;de.hybris.platform.commerceservices.search.pagedata.SortData>"/>
+		<property name="pagination" type="de.hybris.platform.commerceservices.search.pagedata.PaginationData"/>
+	</bean>
+
+
+
+	<bean class="de.hybris.platform.commercewebservicescommons.dto.lenskartproduct.LenskartProductDataWSDTO">
+		<property name="name" type="java.lang.String"/>
+		<property name="size" type="java.lang.Integer"/>
+		<property name="colour" type="de.hybris.myshoestore.core.enums.Color"/>
+		<property name="price" type="java.lang.Integer"/>
+
+	</bean>
+
+	<bean class="de.hybris.platform.commercewebservicescommons.dto.lenskartproduct.LenskartProductDataListWSDTO">
+		<property name="LenskartProduct" type="java.util.List &lt;de.hybris.platform.commercewebservicescommons.dto.lenskartproduct.LenskartProductDataWSDTO>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.queues.data.LenskartProductDataList">
+		<property name="LenskartProduct" type="java.util.List &lt;de.hybris.myshoestore.facades.LenskartProductData>"/>
+	</bean>
+
+
+	<bean class="de.hybris.platform.commercewebservicescommons.dto.recipe.RecipeDataWSDTO">
+		<property name="code" type="java.lang.String"/>
+		<property name="title" type="java.lang.String"/>
+		<property name="description" type="java.lang.String"/>
+		<property name="isComplicated" type="java.lang.Boolean"/>
+
+	</bean>
+
+	<bean class="de.hybris.platform.commercewebservicescommons.dto.recipe.RecipeDataListWSDTO">
+		<property name="Recipe" type="java.util.List &lt;de.hybris.platform.commercewebservicescommons.dto.recipe.RecipeDataWSDTO>"/>
+	</bean>
+
+	<bean class="de.hybris.lenskartcommercewebservices.queues.data.RecipeDataList">
+		<property name="Recipe" type="java.util.List &lt;de.hybris.myshoestore.facades.RecipeData>"/>
+	</bean>
+
+</beans>

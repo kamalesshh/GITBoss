@@ -73,7 +73,10 @@
 
 
     <bean id="newProductPerformable" class="de.hybris.newproductcronjob.cronjob.NewProductPerformable"
-          parent="abstractJobPerformable"/>
+          parent="abstractJobPerformable">
+    <property name="modelService" ref="modelService"/>
+    <property name="mediaService" ref="mediaService"/>
+    </bean>
 	
     <bean id="newproductcronjobSystemSetup" class="de.hybris.newproductcronjob.setup.NewproductcronjobSystemSetup">
         <!-- constructor arg injection example -->

@@ -8,6 +8,10 @@
         <collectiontype code="GenderList" elementtype="Gender" autocreate="true" generate="true" type="list"/>
         <collectiontype code="SwatchColorSet" elementtype="SwatchColorEnum" autocreate="true" generate="true"
                         type="set"/>
+        <collectiontype code="ColorSet" elementtype="Color" autocreate="true" generate="true"
+                        type="set"/>
+        <collectiontype code="LenskartBrandList" elementtype="LenskartBrand" autocreate="true" generate="true"
+                        type="list"/>
         <collectiontype code="CustomOfferLinksList" elementtype="CMSLinkComponent" autocreate="true" generate="true" type="list" />
     </collectiontypes>
 
@@ -26,9 +30,185 @@
             <value code="WHITE"/>
             <value code="YELLOW"/>
         </enumtype>
-    </enumtypes>
 
+        <enumtype generate="true" code="Color" autocreate="true" dynamic="true">
+            <value code="BLACK"/>
+        <value code="BLUE"/>
+        <value code="BROWN"/>
+        <value code="GREEN"/>
+        </enumtype>
+        <enumtype generate="true" code="Units" autocreate="true" dynamic="true">
+                <value code="CUP"/>
+            <value code="TSP"/>
+            <value code="TBSP"/>
+            <value code="POUND"/>
+            <value code="CAN"/>
+            <value code="PKG"/>
+            <value code="BOX"/>
+            <value code="PIECES"/>
+        </enumtype>
+    </enumtypes>
+    <relations>
+        <relation code="LenskartProduct2Brand" generate="true" localized="false" autocreate="true">
+            <sourceElement type="LenskartProduct" cardinality="one" qualifier="lenskartProduct">
+                <modifiers read="true" write="true" search="true" optional="false"/>
+            </sourceElement>
+            <targetElement type="LenskartBrand" cardinality="many" qualifier="lenskartBrand" collectiontype="set">
+                <modifiers read="true" write="true" search="true" optional="true" partof="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="Recipe2Ingredients" generate="true" localized="false" autocreate="true">
+            <sourceElement type="Recipe" cardinality="one" qualifier="recipe">
+                <modifiers read="true" write="true" search="true" optional="false"/>
+            </sourceElement>
+            <targetElement type="Ingredients" cardinality="many" qualifier="ingredients" >
+                <modifiers read="true" write="true" search="true" optional="true" partof="true"/>
+            </targetElement>
+        </relation>
+    </relations>
     <itemtypes>
+        <itemtype code="HelloWorldEmailProcess" extends="StoreFrontCustomerProcess"
+                  jaloclass="de.hybris.myshoestore.core.jalo.process.HelloWorldEmailProcess">
+
+            <attributes>
+
+                <attribute qualifier="firstName" type="java.lang.String">
+                    <persistence type="property" />
+                </attribute>
+
+            </attributes>
+
+        </itemtype>
+        <itemtype code="YoutubeVideoComponent"
+                  extends="SimpleCMSComponent"
+                  jaloclass="com.stackextend.training.jalo.components.YoutubeVideoComponent">
+
+            <attributes>
+                <attribute qualifier="width" type="java.lang.Integer">
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+
+                <attribute qualifier="height" type="java.lang.Integer">
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+
+                <attribute qualifier="videoId" type="java.lang.String">
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+
+                <attribute qualifier="autoPlay" type="java.lang.Boolean">
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+
+                <attribute qualifier="showControls" type="java.lang.Boolean">
+                    <modifiers/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+        <itemtype code="LenskartProduct" extends="GenericItem"
+                  autocreate="true"  generate="true">
+            <deployment table="LenskartProduct" typecode="15112" />
+
+            <attributes>
+
+                <attribute type="java.lang.String" qualifier="name"  autocreate="true" generate="true">
+                    <persistence type="property" />
+                    <modifiers search="true" optional="false" unique="true" initial ="true" read="true" write="true" />
+                </attribute>
+
+                <attribute type="java.lang.Integer" qualifier="size" autocreate="true" generate="true">
+                    <persistence type="property" />
+                    <modifiers search="true" optional="false" unique="true" initial ="true" read="true" write="true" />
+                </attribute>
+
+                <attribute type="java.lang.Integer" qualifier="cost" autocreate="true" generate="true">
+                    <persistence type="dynamic"   attributeHandler="dynamicPriceHandler"/>
+                    <modifiers read="true" write="true" optional="true" search="true"/>
+                </attribute>
+                <attribute qualifier="colour" type="Color">
+                    <persistence type="property" />
+                    <modifiers search="true" read="true" write="true" optional="false" unique="false" initial="true" />
+                    <description>Product Color</description>
+                </attribute>
+
+            </attributes>
+        </itemtype>
+
+        <itemtype code="LenskartBrand"
+                  autocreate="true"  generate="true">
+            <deployment table="LenskartBrand" typecode="15115" />
+            <attributes>
+                <attribute type="java.lang.String" qualifier="brand"  autocreate="true" generate="true">
+                    <persistence type="property" />
+                    <modifiers initial ="true" read="true" write="true" />
+                </attribute>
+            </attributes>
+        </itemtype>
+        <!-- ................................RECIPE START...............................  -->
+        <itemtype code="Recipe" extends="GenericItem"
+                  autocreate="true"  generate="true">
+
+        <deployment table="Recipe" typecode="15116" />
+
+        <attributes>
+
+        <attribute type="java.lang.String" qualifier="code"  autocreate="true" generate="true">
+            <persistence type="property"/>
+            <modifiers optional="false" unique="true" initial ="true" read="true" write="true" search="true" />
+        </attribute>
+
+        <attribute type="java.lang.String" qualifier="title" autocreate="true" generate="true">
+            <persistence type="property" />
+            <modifiers initial ="true" read="true" write="true" optional="false"/>
+        </attribute>
+
+        <attribute type="java.lang.String" qualifier="description" autocreate="true" generate="true">
+            <persistence type="property" />
+            <modifiers initial ="true" read="true" write="true" optional="false"/>
+        </attribute>
+            <attribute type="java.lang.Boolean" qualifier="isComplicated" autocreate="true" generate="true">
+                <persistence type="dynamic"   attributeHandler="dynamicComplexHandler">
+                </persistence>
+                <modifiers read="true" write="true" optional="false" search="true" initial="true"/>
+            </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Ingredients" extends="GenericItem"
+                  autocreate="true"  generate="true">
+
+            <deployment table="Ingredients" typecode="15120" />
+
+            <attributes>
+
+                <attribute type="java.lang.String" qualifier="name"  autocreate="true" generate="true">
+                    <persistence type="property" />
+                    <modifiers search="true" optional="false"  initial ="true" read="true" write="true"  />
+                </attribute>
+
+                <attribute type="java.lang.Integer" qualifier="quantity" autocreate="true" generate="true">
+                    <persistence type="property" />
+                    <modifiers initial ="true" read="true" write="true" optional="false"/>
+                </attribute>
+
+                <attribute qualifier="unit" type="Units">
+                    <persistence type="property" />
+                    <modifiers search="true" read="true" write="true" optional="false" unique="false" initial="true" />
+                </attribute>
+                <attribute qualifier="recipe" type="Recipe">
+                    <persistence type="property" />
+                    <modifiers search="true" read="true" write="true" optional="false" unique="false" initial="true" />
+                </attribute>
+            </attributes>
+        </itemtype>
+
+
 
         <itemtype code="NewProduct" extends="GenericItem"
                   autocreate="true"  generate="true">
@@ -194,6 +374,8 @@
                 
             </itemtype>
         </typegroup>
+
+
 
 
 

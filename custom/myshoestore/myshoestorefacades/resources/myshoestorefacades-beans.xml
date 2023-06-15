@@ -30,4 +30,35 @@
 	</bean>
 
 
+
+	<bean class="de.hybris.myshoestore.facades.RecipeData">
+	<property name="code" type="java.lang.String"/>
+	<property name="title" type="java.lang.String"/>
+	<property name="description" type="java.lang.String"/>
+		<property name="isComplicated" type="java.lang.Boolean"/>
+
+	</bean>
+
+	<bean class="de.hybris.myshoestore.facades.IngredientsData">
+		<property name="name" type="java.lang.String"/>
+		<property name="quantity" type="java.lang.Integer"/>
+		<property name="unit" type="de.hybris.myshoestore.core.enums.Units"/>
+
+	</bean>
+
+
+	<bean class="de.hybris.myshoestore.facades.LenskartBrandData">
+	<property name="brand" type="java.lang.String"/>
+	</bean>
+
+	<bean class="de.hybris.myshoestore.facades.LenskartProductData">
+		<property name="name" type="java.lang.String"/>
+		<property name="size" type="java.lang.Integer"/>
+		<property name="cost" type="java.lang.Integer"/>
+		<property name="colour" type="de.hybris.myshoestore.core.enums.Color"/>
+		<property name="price" type="java.lang.Integer"/>
+		<property name="brand" type="java.util.Set"/>
+	</bean>
+
+
 </beans>

@@ -23,6 +23,7 @@ public class NewProductDataReversePopulator implements Populator<NewProductData,
         target.setColor(source.getColor());
         target.setPrice(source.getPrice());
 
+
     }
 }
 

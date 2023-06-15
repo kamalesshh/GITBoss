@@ -6,6 +6,12 @@
     <cms:pageSlot position="Section1" var="feature">
         <cms:component component="${feature}" />
     </cms:pageSlot>
+    <div class="welcomeInfo">
+    	<cms:pageSlot position="welcomeInfo" var="feature">
+    				<cms:component component="${feature}" />
+    	</cms:pageSlot>
+    	</div>
+
     <div class="row no-margin">
         <div class="col-xs-12 col-md-6 no-space">
             <cms:pageSlot position="Section2A" var="feature" element="div" class="row no-margin">

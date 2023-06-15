@@ -580,6 +580,26 @@
 	<bean id="newProductService" class="de.hybris.myshoestore.core.NewProduct.impl.NewProductServiceImpl">
 		<property name="newProductDao" ref="newProductDao"/>
 	</bean>
+
+	<bean id="recipeDAO" class="de.hybris.myshoestore.core.Recipe.DAO.RecipeDAOImpl">
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+		<property name="modelService" ref="modelService"/>
+
+	</bean>
+
+	<bean id="recipeService" class="de.hybris.myshoestore.core.Recipe.Service.RecipeServiceImpl">
+		<property name="recipeDAO" ref="recipeDAO"/>
+	</bean>
+
+	<bean id="ingredientsDAO" class="de.hybris.myshoestore.core.Ingredients.DAO.IngredientsDAOImpl">
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+		<property name="modelService" ref="modelService"/>
+
+	</bean>
+
+	<bean id="ingredientsService" class="de.hybris.myshoestore.core.Ingredients.Service.IngredientsServiceImpl">
+		<property name="ingredientsDAO" ref="ingredientsDAO"/>
+	</bean>
 	<!-- ############## ValidateInterceptor ########### -->
 	<bean id="newProductValidateInterceptor" class="de.hybris.myshoestore.core.interceptors.impl.NewProductValidateInterceptor" autowire="byName"/>
 	<bean id="newProductValidateInterceptorMapping"
@@ -587,4 +607,38 @@
 		<property name="interceptor" ref="newProductValidateInterceptor"/>
 		<property name="typeCode" value="NewProduct"/>
 	</bean>
+
+
+
+
+	<bean id="lenskartProductDao" class="de.hybris.myshoestore.core.LenskartProduct.dao.impl.LenskartProductDaoImpl">
+		<property name="flexibleSearchService" ref="flexibleSearchService"/>
+		<property name="modelService" ref="modelService"/>
+
+	</bean>
+
+	<bean id="lenskartProductService" class="de.hybris.myshoestore.core.LenskartProduct.impl.LenskartProductServiceImpl">
+		<property name="lenskartProductDao" ref="lenskartProductDao"/>
+	</bean>
+
+	<bean id="generateHelloWorldEmail" parent="abstractGenerateEmailAction">
+		<property name="frontendTemplateName" value="HelloWorldEmailTemplate"/>
+	</bean>
+
+	<bean id="helloWorldEmailProcessDefinitionResource"
+		  class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
+
+		<property name="resource" value="classpath:/myshoestorecore/processes/helloWorldEmailProcess.xml"/>
+
+	</bean>
+
+	<bean id = "helloWorldEmailListener"
+	class="de.hybris.myshoestore.core.event.HelloWorldEmailListener" parent="abstractAcceleratorSiteEventListener">
+		<property name="modelService" ref="modelService"/>
+		<property name="businessProcessService" ref="businessProcessService"/>
+		<property name="sessionService" ref="sessionService"/>
+
+
+	</bean>
+
 </beans>

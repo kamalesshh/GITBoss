@@ -15,6 +15,12 @@
 						  jaloclass="de.hybris.newproductcronjob.jalo.NewProductCronJob"
 						  extends="CronJob"
 						  autocreate="true">
+	<attributes>
+		<attribute qualifier="exportMedia" type="MediaCollection">
+			<modifiers read="true" write="true" search="true" />
+			<persistence type="property"/>
+		</attribute>
+	</attributes>
 				</itemtype>
 
 <!--
